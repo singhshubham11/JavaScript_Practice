@@ -19,5 +19,6 @@ console.log(undefined > 0);
 console.log(undefined < 0);
 
 // === strict check it check value with data type
+// == only check type.
 
 console.log("2" === 2);
