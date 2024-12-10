@@ -16,7 +16,7 @@ console.log(myName.indexOf('j'));
 /**
  * in summary, both slice and substring can cut pieces out of strings, 
  * but slice is more precise and handles negative numbers, while substring is
- *  more flexible with the positions but doesn’t understand negative numbers. 
+ * more flexible with the positions but doesn’t understand negative numbers. 
  * Now you can choose the right tool for the job when working with your JavaScript candy!
  */
 
