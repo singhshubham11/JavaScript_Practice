@@ -1,0 +1,110 @@
+JavaScript execution context :- it meaning is how Js will execute or run your code file
+
+it will code file in 2 phase :-
+1. Memory Creation Phase
+2. Execution Phase
+
+1. When first we give our code file to JavaScript it will create Global Execution Context and keep this GEC in this keyword 
+|
+|-----> there are 2 Execution Context :- 1. Global Execution Context
+                                         2. Function Execution context
+
+
+ 1. Memory Creation Phase (also called the Creation Phase)
+
+During this phase, the JavaScript engine sets up the environment needed for the code to run. This happens before any line of code is executed. 
+
+Key activities:
+- Global Execution Context is created:
+  - This is the default context in which your JS code runs.
+  - It's created when the JS file starts execution.
+  - It consists of two parts:
+    - Global Memory (Variable Environment):
+      - Space in memory is allocated for variables, functions, and objects declared in the code.
+      - Variables are assigned the value `undefined` initially (if `var` is used). Functions are stored in their entirety (their code).
+    - Global `this` object:
+      - Refers to the global object (`window` in browsers, `global` in Node.js).
+
+- Function Execution Contexts are prepared (for functions):
+  - When a function is invoked, a new execution context is created for that function.
+  - Each function execution context has:
+    - Memory (Variable Environment): Stores variables and parameters specific to the function.
+    - `this` binding: Refers to the context from which the function was called.
+
+---
+
+ 2. Code Execution Phase
+
+Once memory allocation is done, the engine starts executing the code line by line.
+
+Key activities:
+1. Values are assigned to variables:
+   - Variables that were initially set to `undefined` are updated with their actual values as the code runs.
+   
+2. Functions are executed:
+   - When a function call is encountered, a new function execution context is created.
+   - The engine pushes this context onto the Call Stack and starts executing the function.
+   - Once the function completes execution, the context is popped off the stack.
+
+3. JavaScript is single-threaded and uses the Call Stack:
+   - JS can execute one task at a time. 
+   - The Call Stack is used to manage the order of execution:
+     - The Global Execution Context is pushed onto the Call Stack first.
+     - When a function is invoked, its Execution Context is pushed on top.
+     - Once the function completes, its context is removed (popped).
+
+4. Async operations (e.g., `setTimeout`, Promises) are handled by the Event Loop:
+   - Async operations are not directly executed in the main thread.
+   - These are offloaded to the Web APIs or a Worker thread.
+   - The result is pushed to the Task Queue and executed once the Call Stack is empty.
+
+---
+
+ Example
+
+console.log("Start");
+
+function greet(name) {
+  console.log("Hello, " + name);
+}
+
+greet("Alice");
+console.log("End");
+
+
+# Execution Flow:
+1. Memory Creation Phase:
+   - Allocate space for `console`, `greet`, and other global variables.
+   - `greet` is stored in memory with its function definition.
+2. Code Execution Phase:
+   - `console.log("Start")` prints "Start".
+   - `greet("Alice")`:
+     - A new Execution Context is created for `greet`.
+     - The string `"Alice"` is passed as an argument.
+     - `console.log("Hello, Alice")` prints "Hello, Alice".
+     - The context for `greet` is popped from the Call Stack.
+   - `console.log("End")` prints "End".
+
+---
+
+ Visualizing the Call Stack:
+
+1. At the start:
+   - Global Execution Context is created and pushed onto the Call Stack.
+
+2. While executing `greet`:
+   - The Execution Context for `greet` is created and added to the stack.
+
+3. After `greet` completes:
+   - `greet`’s Execution Context is popped, and the engine continues with the global code.
+
+---
+
+ Summary
+
+- Memory Creation Phase: Reserves space for variables and functions, initializing variables as `undefined`.
+- Execution Phase: Executes the code line by line, updating values and calling functions.
+- Call Stack: Manages the order of execution of functions and the global code.
+- Asynchronous Operations: Managed using the Event Loop and executed when the Call Stack is empty.
+
+This structured process ensures that JavaScript code executes predictably and efficiently.

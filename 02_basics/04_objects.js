@@ -29,6 +29,7 @@ const obj3 = {...obj1, ...obj2};
 
 
 // IMP used in database in projects
+
 // console.log(Object.keys(tinderuser)); // [ 'id', 'username', 'isLoggedIn' ] ouptut will be an array and can perform for loop etc we can use it
 // console.log(Object.values(tinderuser));
 

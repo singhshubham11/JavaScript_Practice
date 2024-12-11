@@ -16,7 +16,7 @@ let myArr2 = new Array(0, 1, 2, 3, 4, 5);
 // console.log(myArr.indexOf(3));
 
 // const newArr = myArr.join(); // converts array into string
-// console.log(newArr); // 0,1,2,3,4,5 output is like array but its typeOf(newArr) is String
+// console.log(newArr); // 0,1,2,3,4,5 output is like array but the typeOf(newArr) is String
 
 // slice , splice
 
