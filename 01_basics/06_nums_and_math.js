@@ -18,8 +18,8 @@ let price = 2234.6666777888990000
 console.log(price.toFixed(2)); // 2234.67
 
 const hundreds = 100000;
-console.log(hundreds.toLocaleString()); //as per US standards
-console.log(hundreds.toLocaleString('en-IN')); // as per INDIA standards
+console.log(hundreds.toLocaleString()); //as per US standards 100,000
+console.log(hundreds.toLocaleString('en-IN')); // as per INDIA standards 1,00,000
 
 // +++++++++++++++++++++++++++ Maths ++++++++++++++++++++++++++
 

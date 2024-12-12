@@ -8,7 +8,7 @@
 
 /* 
 +++++++++ Falsy values +++++++++++++++
-    false, 0, -0, BigInt => 0n, "", null, undefined, Nan except this all are falsy values
+    false, 0, -0, BigInt => 0n, "", null, undefined, Nan except this all are truthy values
 
 ++++++++++ Truthy values ++++++++++++
     "0", 'false', " ", [], {}, function(){} anything in a string is a truthy value

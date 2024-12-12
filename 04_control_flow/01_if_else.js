@@ -18,7 +18,7 @@ if (score > 100) {
 // console.log(`User power: ${power}`); // scope Error
 
 // const balance = 1000;
-// if (balance > 500) console.log("test"); // implicit if
+// if (balance > 500) console.log("test"); // implicit if withiut curly braces
 
 // if (balance < 500) {
 //     console.log("less than 500");

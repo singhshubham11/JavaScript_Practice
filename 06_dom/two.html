@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    
+</body>
+<script>
+    const div = document.createElement('div');
+    console.log(div);
+    div.className = "main";
+    div.id = Math.round(Math.random() * 10 + 1);
+    div.setAttribute("title", "generated title");
+    div.style.backgroundColor = "green";
+    div.style.padding = "12px";
+
+    // div.innerText = "Hello world!"
+    /*
+    if you read books, listen to developer talks, they say that 
+
+    innerText: When you use innerText, it first accesses the existing text content of the element and then modifies it. 
+    This can sometimes be less efficient if you only need to update specific attributes.
+
+    setAttribute: Using setAttribute allows you to directly modify the attributes of an element, which can be more efficient 
+    when you need to update or set specific properties.   
+    */
+
+   // what people prefer rather than innerText but both are correct approach
+   const addText = document.createTextNode("Hello world!");
+   div.appendChild(addText);
+
+   document.body.appendChild(div); 
+</script>
+</html>
