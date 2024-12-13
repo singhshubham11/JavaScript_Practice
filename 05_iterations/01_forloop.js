@@ -47,7 +47,8 @@ for (let i = 0; i <= 20; i++) {
 
 for (let i = 0; i <= 20; i++) {
     if (i == 5) {
-        console.log("Detected 5"); // when continue is written it will return from there and go to forloop for next iteration it will not reach console.log(i)
+        console.log("Detected 5"); 
+        // when continue is written it will return from there and go to forloop for next iteration it will not reach console.log(i)
         continue;
     }
     console.log(`Value of i is ${i}`);

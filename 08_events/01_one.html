@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+   <script>
+        // this approach is good but we will get less features
+        // document.getElementById('owl').onclick = function () {
+        //     alert("owl clicked");
+        // }
+
+        // Better approach then above and it is powerfull also
+        // document.getElementById('owl').addEventListener('click', function (e) {
+        //     alert("owl clicked");
+        // })
+
+        //Event object: learn below topics
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget,
+        // clientX, clientY, screenX, screenY
+        // altkey, ctrlkey, shiftkey, keyCode
+        // document.getElementById('owl').addEventListener('click', function (e) {
+        //     console.log(e);
+        // })
+
+        // Event propagation: event bubbling, event capturing
+        // In coding terms:
+        // Use bubbling when you want to handle events for children first and parents later.
+        // Use capturing when you want parents to handle things before their children.
+        // Stopping the Event from Spreading
+        // Sometimes, you don’t want the event to keep bubbling or capturing. You can stop it using stopPropagation():
+
+        //event bubbling: false
+        /* 
+            it will behave like a bubble when you click on any image inside the ul then in console you will see output clicked inside the ul
+            when you actually clicked on owl then in console the output will be owl clicked and then clicked inside the ul the propagation take place like bubbel
+        */
+        document.getElementById('images').addEventListener('click', function (e) {
+            // console.log("clicked inside the ul");
+        }, false); // by default it is false (whether you write it or not)only and called as (event bubbling) which is used in market
+
+        document.getElementById('owl').addEventListener('click', function (e) {
+            // console.log("owl clicked");
+            e.stopPropagation();
+        }, false); 
+
+        //event capturing: true
+        /* 
+            it will behave like a parent when you click on any image inside the ul then in console you will see output clicked inside the ul
+            when you actually clicked on owl then in console the output will be clicked inside the ul and then owl clicked the propagation take place like parent and child
+        */
+        document.getElementById('images').addEventListener('click', function (e) {
+            // console.log("clicked inside the ul");
+        }, true); 
+
+        document.getElementById('owl').addEventListener('click', function (e) {
+            // console.log("owl clicked");
+        }, true); 
+
+        // preventDefault(): 
+        // Without preventDefault():
+        // Clicking the "Submit" button reloads the page.
+
+        // With preventDefault():
+        // The page does not reload, and you can handle the form submission in your JavaScript code.
+        document.getElementById('google').addEventListener('click', function (e) {
+            // console.log("google clicked");
+            e.preventDefault();
+        }, false); 
+
+        document.querySelector('#images').addEventListener('click', function (e) {
+            console.log(e); // we will get all events 
+            console.log(e.target); // when we click on any image it will be shown without li tag
+            console.log(e.target.parentNode); // when we click on any image it will be shown with li tag
+            // let removeIt = e.target.parentNode
+            // removeIt.remove(); 
+            // in above commented approach when we click on li then who is li parent it is ul then all images are removed
+            // to prevent it we do some checks
+
+            console.log(e.target.tagName); // IMG
+            if (e.target.tagName === 'IMG') {
+                console.log(e.target.id);
+                let removeIt = e.target.parentNode
+                removeIt.remove(); 
+            }
+            
+        })
+        // removeIt.remove(); 1st method to remove child
+        // removeIt.parentNode.removeChild(removeIt); 2nd method to remove child
+   </script>    
+</body>
+</html>

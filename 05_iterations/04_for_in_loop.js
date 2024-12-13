@@ -26,3 +26,10 @@ map.set("fr", "France");
 for (const key in map) {
     console.log(key); // no outpurt because maps cannot be iterated
 }
+
+/**
+ * for...of: Ideal for iterating over iterable objects like arrays, where you want to access the values directly.
+
+ * for...in: Ideal for iterating over the keys of objects but can lead to issues when used with arrays or objects with 
+   non-enumerable properties
+ */

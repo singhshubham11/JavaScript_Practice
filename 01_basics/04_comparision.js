@@ -5,7 +5,8 @@
 // console.log(2 != 1);
 
 
-console.log("2" > 1); // true
+console.log("2" > 1); // true // In this case, the string "2" is converted to the number 2.
+                              // This happens because JavaScript uses the built-in Number function for type coercion during comparisons.
 console.log("02" > 1); // true
 
 console.log(null > 0);
