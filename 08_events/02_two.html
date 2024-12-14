@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+</head>
+<body>
+    <h1>Shubham Singh</h1>
+    <button id="stop">Stop</button>
+    <script>
+        // setTimeout(() => {
+        //   console.log('ruhan');  
+        // }, 2000);
+
+        // const printName = function () {
+        //     console.log('ruhan');
+        // }
+        // setTimeout(printName, 2000); // only give refrence donot use ()
+
+        // const changeText = function () {
+        //     document.querySelector('h1').innerHTML = "Best JS course";
+        // }
+        // setTimeout(changeText, 2000);
+
+        // const changeText = function () {
+        //     document.querySelector('h1').innerHTML = "Best JS course";
+        // }
+        // const stopMe = setTimeout(changeText, 2000);
+        // clearTimeout(stopMe); // to stop execution of a setTimeout()
+
+        const changeText = function () {
+            document.querySelector('h1').innerHTML = "Best JS course";
+        }
+        const stopMe = setTimeout(changeText, 2000);
+        document.getElementById('stop').addEventListener('click', function (e) {
+            clearTimeout(stopMe);
+            console.log("Stopped");
+        })
+
+    </script>
+</body>
+</html>

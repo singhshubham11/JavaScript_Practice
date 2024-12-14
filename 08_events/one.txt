@@ -1,0 +1,8 @@
+Javascript is synchronous and single threaded bu default
+execute one line of code at a time
+each operation wait for the last one to complete before executing
+
+Blocking Code vs Non-Blocking Code
+
+Blocking: block the flow of program -> Read file Sync
+Non-Blocking: Does not block the flow of program -> Read file Async
