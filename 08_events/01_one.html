@@ -28,7 +28,7 @@
         //     alert("owl clicked");
         // })
 
-        //Event object: learn below topics
+        // Event object: learn below topics
         // type, timestamp, defaultPrevented
         // target, toElement, srcElement, currentTarget,
         // clientX, clientY, screenX, screenY
@@ -39,6 +39,7 @@
 
         // Event propagation: event bubbling, event capturing
         // In coding terms:
+
         // Use bubbling when you want to handle events for children first and parents later.
         // Use capturing when you want parents to handle things before their children.
         // Stopping the Event from Spreading
@@ -85,7 +86,7 @@
         document.querySelector('#images').addEventListener('click', function (e) {
             console.log(e); // we will get all events 
             console.log(e.target); // when we click on any image it will be shown without li tag
-            console.log(e.target.parentNode); // when we click on any image it will be shown with li tag
+            console.log(e.target.parentNode); // when we click on any image it will be shown with ul tag
             // let removeIt = e.target.parentNode
             // removeIt.remove(); 
             // in above commented approach when we click on li then who is li parent it is ul then all images are removed

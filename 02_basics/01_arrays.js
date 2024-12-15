@@ -15,8 +15,19 @@ let myArr2 = new Array(0, 1, 2, 3, 4, 5);
 // console.log(myArr.includes(9));
 // console.log(myArr.indexOf(3));
 
-// const newArr = myArr.join(); // converts array into string
+// The join method is like a versatile glue that you can customize to stick your array (elements) together in various ways
+
+// const newArr = myArr.join(); // converts array elements into string
 // console.log(newArr); // 0,1,2,3,4,5 output is like array but the typeOf(newArr) is String
+
+// let fruits = ['apple', 'banana', 'cherry'];
+// let fruitString = fruits.join();
+// console.log(fruitString); // Output: "apple,banana,cherry"
+
+// let fruitStringHyphen = fruits.join(' - ');
+// console.log(fruitStringHyphen); // Output: "apple - banana - cherry"
+
+
 
 // slice , splice
 

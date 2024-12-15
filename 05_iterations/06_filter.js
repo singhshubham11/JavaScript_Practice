@@ -4,7 +4,7 @@ const coding = ["js", "ps", "ruby", "java", "cpp"];
 //     return item;
 // })
 
-// console.log(values); // undefined forEach does not return a new array. It always returns undefined.
+// console.log(values); // undefined (forEach does not return a new array). It always returns undefined.
 
 const myNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 

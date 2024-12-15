@@ -5,11 +5,11 @@ let myDate = new Date();
 // console.log(myDate);                      // 2024-12-10T08:58:45.926Z
 // console.log(myDate.toString());           // Tue Dec 10 2024 08:58:45 GMT+0000 (Coordinated Universal Time)
 // console.log(myDate.toDateString());       // Tue Dec 10 2024
+// console.log(myDate.toTimeString());       // 09:03:22 GMT+0000 (Coordinated Universal Time)
 // console.log(myDate.toLocaleDateString()); // 12/10/2024
 // console.log(myDate.toLocaleString());     // 12/10/2024, 9:03:22 AM
 // console.log(myDate.toISOString());        // 2024-12-10T09:03:22.206Z
 // console.log(myDate.toJSON());             // 2024-12-10T09:03:22.206Z
-// console.log(myDate.toTimeString());       // 09:03:22 GMT+0000 (Coordinated Universal Time)
 // console.log(myDate.toUTCString());        // Tue, 10 Dec 2024 09:03:22 GMT
 
 let myOwnDate = new Date(2023, 0, 4);  // in JS January has 0 index

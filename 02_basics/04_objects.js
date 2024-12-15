@@ -47,5 +47,5 @@ const course = {
 // const {courseInstructor} = course;
 // console.log(courseInstructor); // kunal
 
-const {courseInstructor: fast} = course; // if name is long then by using : (key-value) we can also access the data
+const {courseInstructor: fast} = course; // if name is long then by using : we can use it as key-value we can also access the data
 console.log(fast); // kunal
