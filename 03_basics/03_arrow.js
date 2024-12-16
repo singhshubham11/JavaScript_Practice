@@ -81,4 +81,3 @@ const arrowFunc = () => {
     console.log(this); // refers to the parent's `this`
 };
 arrowFunc(); // In global scope, refers to the global object
-
