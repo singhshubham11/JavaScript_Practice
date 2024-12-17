@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur code</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+    // LEXIcAL SCOPING 
+
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "Singh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+
+    // CLOUSER:
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name); // Mozilla
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // console.log(myFunc())
+                          
+    </script>
+    
+        <!--below is practical for lexing and clouser-->
+        
+    <script>
+        // suppose if we want to change color 500 time then ? (do not repeat yourself)
+
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        function clickHandler(color){
+            // it is commented bcoz when we call clickHandler("orange") or green then it will automatcally execute without click on button
+            // document.body.style.backgroundColor = `${color}`
+
+            // to change color when click on button then we return it as a function 
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>
+
+
+<!--
+
+3. What Does return displayName; Mean?
+    When you return a function in JavaScript, you are not executing the function immediately. Instead, you are returning a reference to that function.
+
+    In this case:
+
+    return displayName; does not call displayName immediately.
+    It returns the displayName function itself as a value.
+
+
+4. When makeFunc() Is Called
+    When you call makeFunc():
+
+    const myFunc = makeFunc();
+    Here’s what happens step by step:
+
+    makeFunc() is executed.
+    Inside makeFunc, the name variable is created with the value "Mozilla".
+    The displayName function is returned (as a reference).
+    The myFunc variable now holds the reference to the displayName function.
+    At this point:
+
+    myFunc is just another name for displayName.
+
+
+5. What Happens When myFunc() Is Called?
+    console.log(myFunc());
+    When you call myFunc(), you are essentially calling displayName (since myFunc holds the reference to displayName).
+    Inside displayName, the console.log(name) line is executed.
+    Even though makeFunc() has finished running, displayName still has access to the name variable due to something called a closure.
+
+
+6. Closures Explained
+    A closure is created when a function "remembers" the variables in its surrounding scope, even after 
+    the outer function has finished executing.
+
+    In this case:
+
+    makeFunc() creates the name variable and defines displayName.
+    Even after makeFunc() returns and finishes execution, the displayName function still "remembers" the name variable from its scope.
+    That’s why, when you call myFunc():
+
+    console.log(name) prints "Mozilla".
+
+
+8. Summary
+    return displayName; returns the function displayName itself, not the result of calling it.
+    myFunc becomes a reference to the displayName function.
+    When myFunc() is called, it executes displayName, logs "Mozilla", and returns undefined (as no return statement is present).
+-->

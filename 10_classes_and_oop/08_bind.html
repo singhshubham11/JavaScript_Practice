@@ -17,7 +17,7 @@
             //requirement
             document
                 .querySelector('button')
-                .addEventListener('click', this.handleClick.bind(this))
+                .addEventListener('click', this.handleClick);
         }
 
         handleClick(){
@@ -29,3 +29,108 @@
     const app = new React()
 </script>
 </html>
+
+
+<!-- Key Takeaways
+Bind = To tie or connect something.
+In JavaScript, bind ties a function to a specific object, ensuring the function knows who its this is.
+The name "bind" was chosen because it describes exactly what the method does: it binds the function to an object so they stay connected. 
+
+
+The bind(this) fixes this problem by locking the connection between the function (handleClick) and its owner (this, the React instance).
+
+
+ What `bind` Does
+Now, you (the chef) decide to be smarter. You tell the helper:  
+> "When the customer clicks the button, call my `cookFood` function. Here, take this recipe book with my name on it so you never forget that I’m the chef."  
+
+This is what `bind` does:  
+- It gives the helper a clear instruction to call the `cookFood` function from the chef's recipe book (object).  
+- Now, whenever the button is clicked, the helper knows to call you (the chef) and not anyone else.  
+
+
+ In JavaScript Terms
+Let’s connect this story to the code:
+
+1. Chef = Your Class (React):
+   - You are the chef, and your `handleClick` function is like the chef's recipe to handle orders.
+
+2. Helper = Event Listener:
+   - The helper is the event listener, which waits for the button to be clicked and then calls a function.
+
+3. Customer = Button:
+   - The customer is the button, which triggers the helper when clicked.
+
+4. The Problem with `this`:
+   - Without `bind(this)`, the helper (event listener) forgets that it’s supposed to call the function from the chef’s recipe book,
+    Instead, it uses the button’s `this`, which doesn’t have the right information.
+
+5. Solution with `bind(this)`:
+   - `bind(this)` tells the helper, "Always use the chef's recipe book (React class instance) when calling the function, no matter who asks for it."
+
+
+ Simple Example with a Story
+
+# Without `bind(this)`
+
+class Chef {
+    constructor(name) {
+        this.name = name;
+        console.log(`${this.name} is in the kitchen.`);
+
+        document.querySelector('button').addEventListener('click', this.cookFood);
+    }
+
+    cookFood() {
+        console.log(`Chef ${this.name} is cooking food.`);
+    }
+}
+
+const chef = new Chef("Gordon");
+
+
+- What Happens?
+  - When the button is clicked, the `cookFood` function runs.
+  - But `this.name` inside `cookFood` is now pointing to the button, not the chef.
+  - The result is something like `"Chef undefined is cooking food."` because the button doesn’t have a `name` property.
+
+
+# With `bind(this)`
+
+class Chef {
+    constructor(name) {
+        this.name = name;
+        console.log(`${this.name} is in the kitchen.`);
+
+        document.querySelector('button').addEventListener('click', this.cookFood.bind(this));
+    }
+
+    cookFood() {
+        console.log(`Chef ${this.name} is cooking food.`);
+    }
+}
+
+const chef = new Chef("Gordon");
+
+
+- What Happens Now?
+  - The `bind(this)` makes sure the `cookFood` function always uses the chef's `this`.
+  - Now, when the button is clicked, it prints `"Chef Gordon is cooking food."` correctly!
+
+
+ Why Is `this` Confusing Without `bind`?
+Let’s go back to the story:  
+The helper (event listener) doesn’t automatically know who it’s working for.  
+In JavaScript, when you pass a function as a callback (like `this.handleClick`), it loses 
+the connection to its original owner (the chef, or the React class instance).  
+
+The `bind(this)` fixes this problem by locking the connection between the function (`handleClick`) and its owner (`this`, the React instance).
+
+
+ Super Simple Takeaway
+- Without `bind(this)`: The event listener calls the function, but it forgets who owns the function (`this` changes to the button).
+- With `bind(this)`: The event listener calls the function and always remembers who owns it (the React instance).
+
+`bind` is like a name tag for the function:  
+> "Hi, I’m `handleClick`, and I work for the React instance!"
+-->
