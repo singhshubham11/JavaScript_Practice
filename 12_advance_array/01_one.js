@@ -10,7 +10,7 @@ const myArr = [];
  * it has 3 type optimization
  * 1) SMI (samll integer)
  * 2) Packed element
- * 3) Double (float, string, function)
+ * 3) Double (float)
  * 
  * optimizations are done by v8 engine
  * if array has number at 1st place, string at 2nd place, float at 3rd place then optimization is done according to the values
